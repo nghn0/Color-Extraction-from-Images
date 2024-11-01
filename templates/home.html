@@ -1,0 +1,69 @@
+{% from 'bootstrap5/form.html' import render_form %}
+{{ bootstrap.load_css() }}
+
+
+<html>
+<head>
+<style>
+body {
+  background-color: white;
+}
+
+h1 {
+  color: black;
+  text-align:center;
+}
+h2{
+    text-align:center;
+    }
+
+.colors{
+display:flex;
+    }
+.colors{
+    display:flex;
+    width:80rem;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+    padding:10px;
+    }
+.col_pal{
+    display:flex;
+    background-color:white;
+    align-items:center;
+    justify-content:center;
+    height:5rem;
+    width:10rem;
+    }
+
+img{
+    width:40rem;
+    margin-left:10rem;
+    margin-right:10rem;
+    }
+
+</style>
+</head>
+<body>
+
+<h1>Top 100 Color Palette of image</h1>
+{{ render_form(form) }}
+
+{% if color %}
+<img src="/static/photos/{{file}}" width="500rem">
+<h3>Colors</h3>
+<div class="colors">
+    {% for i in colors %}
+        <div class="col_pal" style="background-color:rgb{{ i }};">
+            <div class="num">{{ i }}</div>
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endif %}
+
+</body>
+</html>
